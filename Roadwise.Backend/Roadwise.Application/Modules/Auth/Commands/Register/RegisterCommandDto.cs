@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.Register;
+namespace Roadwise.Application.Modules.Auth.Commands.Register;
 
 /// <summary>
 /// Tokens of the newly registered user. Same shape as <see cref="Login.LoginCommandDto"/>,

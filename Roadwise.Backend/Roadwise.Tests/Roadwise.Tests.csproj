@@ -32,9 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Market.API\Market.API.csproj" />
-    <ProjectReference Include="..\Market.Application\Market.Application.csproj" />
-    <ProjectReference Include="..\Market.Shared\Market.Shared.csproj" />
+    <ProjectReference Include="..\Roadwise.API\Roadwise.API.csproj" />
+    <ProjectReference Include="..\Roadwise.Application\Roadwise.Application.csproj" />
+    <ProjectReference Include="..\Roadwise.Shared\Roadwise.Shared.csproj" />
   </ItemGroup>
 
 </Project>

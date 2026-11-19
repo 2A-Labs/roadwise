@@ -1,4 +1,4 @@
-namespace Market.Application.Common;
+namespace Roadwise.Application.Common;
 
 /// <summary>
 /// Recognizes JPEG, PNG and WEBP images by their first bytes ("magic numbers").

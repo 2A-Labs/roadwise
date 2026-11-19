@@ -1,4 +1,4 @@
-namespace Market.Shared.Options;
+namespace Roadwise.Shared.Options;
 
 /// <summary>
 /// "Frontend" section: where the Angular application runs, for links in emails

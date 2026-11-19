@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Delete;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Delete;
 
 public sealed class DeleteExchangeRateCommandHandler(IAppDbContext ctx)
     : IRequestHandler<DeleteExchangeRateCommand, Unit>
@@ -9,7 +9,7 @@ public sealed class DeleteExchangeRateCommandHandler(IAppDbContext ctx)
             .FirstOrDefaultAsync(x => x.Id == request.Id, ct);
 
         if (rate is null)
-            throw new MarketNotFoundException($"Kurs (ID={request.Id}) nije pronađen.");
+            throw new RoadwiseNotFoundException($"Kurs (ID={request.Id}) nije pronađen.");
 
         // Soft delete: from now on the previous rate of the currency is used again for this period.
         ctx.ExchangeRates.Remove(rate);

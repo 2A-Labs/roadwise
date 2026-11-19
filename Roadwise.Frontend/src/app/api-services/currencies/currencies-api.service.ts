@@ -15,7 +15,7 @@ import {
 } from './currencies-api.model';
 
 /**
- * Valute i kursna lista. Cijene i narudžbe su u KM; konverzija je samo za prikaz.
+ * Valute i kursna lista. Iznosi su u KM; konverzija je samo za prikaz.
  * Za prikaz cijena u odabranoj valuti koristi CurrencyService + pipe "money", ne ovaj servis direktno.
  */
 @Injectable({

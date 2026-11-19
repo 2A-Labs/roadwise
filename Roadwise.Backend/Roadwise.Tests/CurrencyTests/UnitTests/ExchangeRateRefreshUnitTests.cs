@@ -1,13 +1,13 @@
-using Market.Application.Common.Exceptions;
-using Market.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
-using Market.Infrastructure.Common;
-using Market.Shared.Options;
+using Roadwise.Application.Common.Exceptions;
+using Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
+using Roadwise.Infrastructure.Common;
+using Roadwise.Shared.Options;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Time.Testing;
 using System.Net;
 using System.Text;
 
-namespace Market.Tests.CurrencyTests.UnitTests;
+namespace Roadwise.Tests.CurrencyTests.UnitTests;
 
 /// <summary>
 /// Refresh of exchange rates through the Frankfurter provider, with a fake HTTP response (no network).
@@ -89,7 +89,7 @@ public class ExchangeRateRefreshUnitTests
         var handler = new RefreshExchangeRatesCommandHandler(context, CreateProvider(ExchangeRatesOptions.ProviderNone));
 
         // Act + Assert
-        await Assert.ThrowsAsync<MarketConflictException>(() =>
+        await Assert.ThrowsAsync<RoadwiseConflictException>(() =>
             handler.Handle(new RefreshExchangeRatesCommand(), CancellationToken.None));
     }
 

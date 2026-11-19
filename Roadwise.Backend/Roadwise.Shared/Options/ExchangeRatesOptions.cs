@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Market.Shared.Options;
+namespace Roadwise.Shared.Options;
 
 /// <summary>
 /// "ExchangeRates" section: optional automatic download of exchange rates.

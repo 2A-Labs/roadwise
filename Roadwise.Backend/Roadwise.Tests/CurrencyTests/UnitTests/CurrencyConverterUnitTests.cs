@@ -1,9 +1,9 @@
-using Market.Application.Common.Exceptions;
-using Market.Domain.Entities.Finance;
-using Market.Infrastructure.Common;
+using Roadwise.Application.Common.Exceptions;
+using Roadwise.Domain.Entities.Finance;
+using Roadwise.Infrastructure.Common;
 using Microsoft.Extensions.Time.Testing;
 
-namespace Market.Tests.CurrencyTests.UnitTests;
+namespace Roadwise.Tests.CurrencyTests.UnitTests;
 
 public class CurrencyConverterUnitTests
 {
@@ -132,7 +132,7 @@ public class CurrencyConverterUnitTests
         var converter = new CurrencyConverter(context, _clock);
 
         // Act + Assert
-        await Assert.ThrowsAsync<MarketNotFoundException>(() => converter.ConvertAsync(100m, "XYZ", "BAM"));
+        await Assert.ThrowsAsync<RoadwiseNotFoundException>(() => converter.ConvertAsync(100m, "XYZ", "BAM"));
     }
 
     [Fact]
@@ -146,7 +146,7 @@ public class CurrencyConverterUnitTests
         var converter = new CurrencyConverter(context, _clock);
 
         // Act + Assert
-        await Assert.ThrowsAsync<MarketNotFoundException>(() => converter.ConvertAsync(100m, "USD", "BAM"));
+        await Assert.ThrowsAsync<RoadwiseNotFoundException>(() => converter.ConvertAsync(100m, "USD", "BAM"));
     }
 
     [Fact]
@@ -157,7 +157,7 @@ public class CurrencyConverterUnitTests
         var converter = new CurrencyConverter(context, _clock);
 
         // Act + Assert: the first USD rate is valid from 1 Jan 2026
-        await Assert.ThrowsAsync<MarketBusinessRuleException>(() =>
+        await Assert.ThrowsAsync<RoadwiseBusinessRuleException>(() =>
             converter.ConvertAsync(100m, "USD", "BAM", new DateTime(2025, 12, 31, 0, 0, 0, DateTimeKind.Utc)));
     }
 }

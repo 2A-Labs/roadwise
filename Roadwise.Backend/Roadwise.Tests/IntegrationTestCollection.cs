@@ -1,4 +1,4 @@
-namespace Market.Tests;
+namespace Roadwise.Tests;
 
 /// <summary>
 /// All integration test classes share one API instance (and its InMemory database) and run one after another.

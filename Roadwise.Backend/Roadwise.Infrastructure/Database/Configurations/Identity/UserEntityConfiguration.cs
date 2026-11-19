@@ -1,8 +1,8 @@
-﻿namespace Market.Infrastructure.Database.Configurations.Identity;
+﻿namespace Roadwise.Infrastructure.Database.Configurations.Identity;
 
-public sealed class UserEntityConfiguration : IEntityTypeConfiguration<MarketUserEntity>
+public sealed class UserEntityConfiguration : IEntityTypeConfiguration<RoadwiseUserEntity>
 {
-    public void Configure(EntityTypeBuilder<MarketUserEntity> b)
+    public void Configure(EntityTypeBuilder<RoadwiseUserEntity> b)
     {
         b.ToTable("Users");
 
@@ -17,24 +17,24 @@ public sealed class UserEntityConfiguration : IEntityTypeConfiguration<MarketUse
 
         b.Property(x => x.Firstname)
             .IsRequired()
-            .HasMaxLength(MarketUserEntity.Constraints.FirstnameMaxLength);
+            .HasMaxLength(RoadwiseUserEntity.Constraints.FirstnameMaxLength);
 
         b.Property(x => x.Lastname)
             .IsRequired()
-            .HasMaxLength(MarketUserEntity.Constraints.LastnameMaxLength);
+            .HasMaxLength(RoadwiseUserEntity.Constraints.LastnameMaxLength);
 
         b.Property(x => x.Email)
             .IsRequired()
-            .HasMaxLength(MarketUserEntity.Constraints.EmailMaxLength);
+            .HasMaxLength(RoadwiseUserEntity.Constraints.EmailMaxLength);
 
         b.Property(x => x.PasswordHash)
             .IsRequired();
 
         b.Property(x => x.Address)
-            .HasMaxLength(MarketUserEntity.Constraints.AddressMaxLength);
+            .HasMaxLength(RoadwiseUserEntity.Constraints.AddressMaxLength);
 
         b.Property(x => x.City)
-            .HasMaxLength(MarketUserEntity.Constraints.CityMaxLength);
+            .HasMaxLength(RoadwiseUserEntity.Constraints.CityMaxLength);
 
         // Roles
         b.Property(x => x.IsAdmin)

@@ -1,20 +1,20 @@
-﻿using Market.Application.Abstractions;
-using Market.Application.Modules.Auth.Commands.Login;
-using Market.Shared.Constants;
+﻿using Roadwise.Application.Abstractions;
+using Roadwise.Application.Modules.Auth.Commands.Login;
+using Roadwise.Shared.Constants;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
-namespace Market.Tests;
+namespace Roadwise.Tests;
 
 public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<Program>
 {
     // Seeded accounts (see DynamicDataSeeder)
-    public const string AdminEmail = "admin@market.local";
+    public const string AdminEmail = "admin@roadwise.local";
     public const string AdminPassword = "Admin123!";
-    public const string EmployeeEmail = "employee@market.local";
+    public const string EmployeeEmail = "employee@roadwise.local";
     public const string EmployeePassword = "Employee123!";
 
     /// <summary>

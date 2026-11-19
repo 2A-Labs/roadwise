@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Common;
+namespace Roadwise.Application.Modules.Auth.Common;
 
 /// <summary>
 /// Session steps shared by the auth handlers. A "session" is one refresh token (one logged-in device/browser).
@@ -14,7 +14,7 @@ public static class UserSessionExtensions
     public static JwtTokenPair StartSession(
         this IAppDbContext ctx,
         IJwtTokenService jwt,
-        MarketUserEntity user,
+        RoadwiseUserEntity user,
         string? fingerprint = null)
     {
         var tokens = jwt.IssueTokens(user);
@@ -33,7 +33,7 @@ public static class UserSessionExtensions
     /// <summary>
     /// Logs the user out everywhere: every active refresh token is revoked, and <c>TokenVersion</c> is incremented,
     /// so already issued access tokens are rejected too (the "ver" claim is checked on every request,
-    /// see Market.API DependencyInjection). Used by password change/reset and by refresh token reuse detection.
+    /// see Roadwise.API DependencyInjection). Used by password change/reset and by refresh token reuse detection.
     /// <para>
     /// The tokens are also deleted (soft delete), not only revoked. RefreshTokenCommandHandler treats a REVOKED token
     /// that comes back as stolen and closes all sessions again. After a password change, the user's other devices still
@@ -43,7 +43,7 @@ public static class UserSessionExtensions
     /// </summary>
     public static async Task RevokeAllSessionsAsync(
         this IAppDbContext ctx,
-        MarketUserEntity user,
+        RoadwiseUserEntity user,
         DateTime nowUtc,
         CancellationToken ct)
     {

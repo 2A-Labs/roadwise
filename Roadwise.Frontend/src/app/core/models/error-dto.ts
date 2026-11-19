@@ -1,5 +1,5 @@
 /**
- * Standardni oblik greške koji vraća backend (Market.Shared/Dtos/ErrorDto.cs).
+ * Standardni oblik greške koji vraća backend (Roadwise.Shared/Dtos/ErrorDto.cs).
  *
  * code:
  *  - "validation.error"  (400) – popunjen je i niz errors
@@ -19,7 +19,7 @@ export interface ErrorDto {
 }
 
 /**
- * Greška jednog polja forme (Market.Shared/Dtos/FieldErrorDto.cs).
+ * Greška jednog polja forme (Roadwise.Shared/Dtos/FieldErrorDto.cs).
  */
 export interface FieldErrorDto {
   /** camelCase putanja polja, npr. "name" ili "items[0].quantity" */

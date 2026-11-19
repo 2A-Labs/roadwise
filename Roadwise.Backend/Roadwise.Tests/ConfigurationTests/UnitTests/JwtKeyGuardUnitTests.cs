@@ -1,8 +1,8 @@
-using Market.API;
+using Roadwise.API;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Market.Tests.ConfigurationTests.UnitTests;
+namespace Roadwise.Tests.ConfigurationTests.UnitTests;
 
 /// <summary>
 /// The JWT keys from the repository are public, so AddAPI accepts each one only in its own environment:

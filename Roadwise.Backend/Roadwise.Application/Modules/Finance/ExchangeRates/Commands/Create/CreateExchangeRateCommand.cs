@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Create;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Create;
 
 /// <summary>
 /// Adds a new rate for a currency (rates are never edited; a new rate replaces the old one from its <see cref="ValidFromUtc"/>).

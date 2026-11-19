@@ -1,4 +1,4 @@
-namespace Market.Infrastructure.Database.Configurations.Identity;
+namespace Roadwise.Infrastructure.Database.Configurations.Identity;
 
 public sealed class PasswordResetTokenEntityConfiguration : IEntityTypeConfiguration<PasswordResetTokenEntity>
 {

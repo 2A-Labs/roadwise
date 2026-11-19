@@ -1,8 +1,8 @@
-﻿using Market.Application.Common.Behaviors;
+﻿using Roadwise.Application.Common.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Market.Application;
+namespace Roadwise.Application;
 
 public static class DependencyInjection
 {

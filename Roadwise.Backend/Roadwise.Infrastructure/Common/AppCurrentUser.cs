@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using Market.Application.Abstractions;
+using Roadwise.Application.Abstractions;
 
-namespace Market.Infrastructure.Common;
+namespace Roadwise.Infrastructure.Common;
 
 /// <summary>
 /// Implementation of IAppCurrentUser that reads data from a JWT token.

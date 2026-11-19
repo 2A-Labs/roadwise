@@ -1,9 +1,9 @@
-using Market.Shared.Options;
+using Roadwise.Shared.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Net;
 
-namespace Market.Application.Modules.Auth.Commands.ForgotPassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ForgotPassword;
 
 public sealed class ForgotPasswordCommandHandler(
     IAppDbContext ctx,
@@ -60,7 +60,7 @@ public sealed class ForgotPasswordCommandHandler(
 
         try
         {
-            await emailSender.SendAsync(user.Email, "Market – promjena lozinke", BuildEmailBody(user.Firstname, link), ct);
+            await emailSender.SendAsync(user.Email, "Roadwise – promjena lozinke", BuildEmailBody(user.Firstname, link), ct);
         }
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
@@ -92,11 +92,11 @@ public sealed class ForgotPasswordCommandHandler(
 
         return $"""
             <p>Pozdrav {name},</p>
-            <p>primili smo zahtjev za promjenu lozinke Vašeg Market naloga. Novu lozinku možete postaviti na sljedećem linku:</p>
+            <p>primili smo zahtjev za promjenu lozinke Vašeg Roadwise naloga. Novu lozinku možete postaviti na sljedećem linku:</p>
             <p><a href="{href}">{href}</a></p>
             <p>Link važi {TokenLifetime.TotalMinutes} minuta i može se iskoristiti samo jednom.
             Ako niste tražili promjenu lozinke, zanemarite ovaj email – Vaša lozinka ostaje ista.</p>
-            <p>Market</p>
+            <p>Roadwise</p>
             """;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Market.Application.Common.Exceptions;
+﻿namespace Roadwise.Application.Common.Exceptions;
 
-public sealed class MarketConflictException : Exception
+public sealed class RoadwiseConflictException : Exception
 {
-    public MarketConflictException(string message) : base(message) { }
+    public RoadwiseConflictException(string message) : base(message) { }
 }

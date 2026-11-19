@@ -2,7 +2,7 @@ using System.Buffers.Text;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Market.Application.Common;
+namespace Roadwise.Application.Common;
 
 /// <summary>
 /// Random tokens that are sent to the client (refresh token, password reset link) and their hashes.

@@ -3,7 +3,7 @@ import { inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 import { CurrencyService } from '../../../core/services/currency/currency.service';
 
 /**
- * Iznos u KM → tekst u valuti koju je kupac odabrao u headeru (npr. "51,13 €").
+ * Iznos u KM → tekst u valuti koju je korisnik odabrao u headeru (npr. "51,13 €").
  *
  *   {{ product.price | money }}
  *
@@ -19,7 +19,7 @@ import { CurrencyService } from '../../../core/services/currency/currency.servic
  * Alternativa bez impure pipe-a: {{ product.price | money: currency.selected() }} u SVAKOM
  * templateu (pure pipe sa valutom kao argumentom) – ispravno, ali lako se zaboravi argument.
  *
- * Napomena: ovo je SAMO prikaz. Narudžba se obračunava u KM, a tačan iznos računa server.
+ * Napomena: ovo je SAMO prikaz. Iznos se obračunava u KM, a tačan iznos računa server.
  */
 @Pipe({
   name: 'money',

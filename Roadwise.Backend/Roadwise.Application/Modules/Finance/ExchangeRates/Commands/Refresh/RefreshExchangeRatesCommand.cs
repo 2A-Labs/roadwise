@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
 
 /// <summary>
 /// Downloads the latest rates from the configured <see cref="IExchangeRateProvider"/> and stores them as new rates.

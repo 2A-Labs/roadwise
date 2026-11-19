@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Queries.GetMe;
+namespace Roadwise.Application.Modules.Auth.Queries.GetMe;
 
 public sealed class GetMeQueryHandler(IAppDbContext ctx, IAppCurrentUser currentUser)
     : IRequestHandler<GetMeQuery, GetMeQueryDto>
@@ -6,7 +6,7 @@ public sealed class GetMeQueryHandler(IAppDbContext ctx, IAppCurrentUser current
     public async Task<GetMeQueryDto> Handle(GetMeQuery request, CancellationToken ct)
     {
         var userId = currentUser.UserId
-            ?? throw new MarketUnauthorizedException("Korisnik nije prijavljen.");
+            ?? throw new RoadwiseUnauthorizedException("Korisnik nije prijavljen.");
 
         var dto = await ctx.Users
             .AsNoTracking()
@@ -25,6 +25,6 @@ public sealed class GetMeQueryHandler(IAppDbContext ctx, IAppCurrentUser current
             })
             .FirstOrDefaultAsync(ct);
 
-        return dto ?? throw new MarketNotFoundException($"Korisnik (ID={userId}) nije pronađen.");
+        return dto ?? throw new RoadwiseNotFoundException($"Korisnik (ID={userId}) nije pronađen.");
     }
 }

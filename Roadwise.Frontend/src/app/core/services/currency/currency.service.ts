@@ -2,7 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { CurrenciesApiService } from '../../../api-services/currencies/currencies-api.service';
 import { ListCurrenciesQueryDto } from '../../../api-services/currencies/currencies-api.model';
 
-/** Valuta u kojoj kupac želi VIDJETI cijene. */
+/** Valuta u kojoj korisnik želi VIDJETI iznose. */
 export interface DisplayCurrency {
   code: string;
   name: string;
@@ -28,7 +28,7 @@ export const BASE_CURRENCY: DisplayCurrency = {
  *
  * - Lista valuta (GET /Currencies) se učitava jednom, na prvu upotrebu (ensureLoaded).
  * - Odabir se pamti u localStorage; default je KM.
- * - fromBase() je SAMO za prikaz: cijene, korpa i narudžbe su u KM, a server računa iznose.
+ * - fromBase() je SAMO za prikaz: iznosi su u KM, a server ih računa.
  *   Tačna konverzija za određeni datum ide preko GET /Currencies/convert (stranica /converter).
  *
  * U templateu se ne koristi direktno – za cijene koristi pipe: {{ product.price | money }}.

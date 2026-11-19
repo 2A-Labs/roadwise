@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.ChangePassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ChangePassword;
 
 /// <summary>
 /// New tokens after a password change (the old ones no longer work). Same shape as <see cref="Login.LoginCommandDto"/>.

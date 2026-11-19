@@ -1,9 +1,9 @@
-namespace Market.Application.Abstractions;
+namespace Roadwise.Application.Abstractions;
 
 /// <summary>
 /// Sends an email. Handlers build the content; the implementation only delivers it.
 /// <para>
-/// Registered in Market.Infrastructure by configuration ("Email:Smtp:Host"):
+/// Registered in Roadwise.Infrastructure by configuration ("Email:Smtp:Host"):
 /// SmtpEmailSender when a host is set, otherwise LoggingEmailSender, which only writes the email
 /// to the backend log (allowed only in Development, Testing and IntegrationTests).
 /// </para>

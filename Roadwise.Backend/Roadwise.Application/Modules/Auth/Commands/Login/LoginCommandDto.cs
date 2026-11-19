@@ -1,4 +1,4 @@
-﻿namespace Market.Application.Modules.Auth.Commands.Login;
+﻿namespace Roadwise.Application.Modules.Auth.Commands.Login;
 
 /// <summary>
 /// Represents a pair of tokens (access + refresh) that the client receives upon login.

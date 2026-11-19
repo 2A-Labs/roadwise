@@ -1,11 +1,11 @@
 using FluentValidation.Results;
-using Market.Application.Modules.Auth.Common;
+using Roadwise.Application.Modules.Auth.Common;
 
-namespace Market.Application.Modules.Auth.Commands.ResetPassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ResetPassword;
 
 public sealed class ResetPasswordCommandHandler(
     IAppDbContext ctx,
-    IPasswordHasher<MarketUserEntity> hasher,
+    IPasswordHasher<RoadwiseUserEntity> hasher,
     TimeProvider timeProvider)
     : IRequestHandler<ResetPasswordCommand>
 {

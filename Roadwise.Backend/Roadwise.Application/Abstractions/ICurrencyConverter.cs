@@ -1,4 +1,4 @@
-namespace Market.Application.Abstractions;
+namespace Roadwise.Application.Abstractions;
 
 /// <summary>
 /// Converts amounts between currencies using the exchange rates stored in the database.
@@ -14,8 +14,8 @@ public interface ICurrencyConverter
     /// Converts <paramref name="amount"/> from <paramref name="fromCode"/> to <paramref name="toCode"/>
     /// (codes are case-insensitive) with the rates valid at <paramref name="atUtc"/> (default: now).
     /// </summary>
-    /// <exception cref="Common.Exceptions.MarketNotFoundException">A currency does not exist or is disabled.</exception>
-    /// <exception cref="Common.Exceptions.MarketBusinessRuleException">A currency has no rate valid at <paramref name="atUtc"/>.</exception>
+    /// <exception cref="Common.Exceptions.RoadwiseNotFoundException">A currency does not exist or is disabled.</exception>
+    /// <exception cref="Common.Exceptions.RoadwiseBusinessRuleException">A currency has no rate valid at <paramref name="atUtc"/>.</exception>
     Task<CurrencyConversionResult> ConvertAsync(
         decimal amount,
         string fromCode,

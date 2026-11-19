@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.Currencies.Queries.List;
+namespace Roadwise.Application.Modules.Finance.Currencies.Queries.List;
 
 public sealed class ListCurrenciesQueryHandler(IAppDbContext ctx, TimeProvider timeProvider)
     : IRequestHandler<ListCurrenciesQuery, List<ListCurrenciesQueryDto>>

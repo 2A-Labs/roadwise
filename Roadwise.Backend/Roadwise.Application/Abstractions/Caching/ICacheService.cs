@@ -1,4 +1,4 @@
-namespace Market.Application.Abstractions.Caching;
+namespace Roadwise.Application.Abstractions.Caching;
 
 /// <summary>
 /// Simple "cache-aside" helper over <c>IDistributedCache</c>.
@@ -7,16 +7,11 @@ namespace Market.Application.Abstractions.Caching;
 /// with a non-empty <c>ConnectionStrings:Redis</c> it runs on Redis, and handlers do not change.
 /// </para>
 /// <para>
-/// Example — cache the public catalog home page (GetCatalogHomeQueryHandler) for 5 minutes:
+/// Example — cache a list that rarely changes (e.g. license categories) for 5 minutes:
 /// <code>
-/// var version = await catalogCacheVersion.GetVersionAsync(ct);
-/// var key = $"catalog:v{version}:home:c{categoryLimit}:p{productLimit}";
-///
-/// var dto = await cache.GetOrCreateAsync(key, token => LoadHomeFromDatabaseAsync(token), TimeSpan.FromMinutes(5), ct);
+/// var dto = await cache.GetOrCreateAsync("license-categories:all", token => LoadFromDatabaseAsync(token), TimeSpan.FromMinutes(5), ct);
 /// </code>
-/// Every handler that changes the catalog (products, categories, promotions) then calls
-/// <see cref="ICatalogCacheVersionService.BumpVersionAsync"/> after <c>SaveChangesAsync</c>,
-/// so the next request uses a new key and reads fresh data.
+/// A handler that changes the cached data must then remove or version the key, so the next request reads fresh data.
 /// </para>
 /// </summary>
 public interface ICacheService

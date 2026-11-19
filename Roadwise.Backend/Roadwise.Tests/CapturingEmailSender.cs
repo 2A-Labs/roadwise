@@ -1,7 +1,7 @@
-using Market.Application.Abstractions;
+using Roadwise.Application.Abstractions;
 using System.Collections.Concurrent;
 
-namespace Market.Tests;
+namespace Roadwise.Tests;
 
 /// <summary>
 /// <see cref="IEmailSender"/> for integration tests: nothing is sent, every email is kept in memory,

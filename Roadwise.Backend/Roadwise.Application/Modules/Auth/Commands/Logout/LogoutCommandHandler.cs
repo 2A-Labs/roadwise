@@ -1,4 +1,4 @@
-﻿namespace Market.Application.Modules.Auth.Commands.Logout;
+﻿namespace Roadwise.Application.Modules.Auth.Commands.Logout;
 
 /// <summary>
 /// Handler that revokes the user's refresh token (idempotently).

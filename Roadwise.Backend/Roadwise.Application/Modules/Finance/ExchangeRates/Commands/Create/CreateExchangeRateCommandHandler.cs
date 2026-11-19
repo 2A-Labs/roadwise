@@ -1,6 +1,6 @@
-using Market.Domain.Entities.Finance;
+using Roadwise.Domain.Entities.Finance;
 
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Create;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Create;
 
 public sealed class CreateExchangeRateCommandHandler(IAppDbContext ctx)
     : IRequestHandler<CreateExchangeRateCommand, int>
@@ -22,10 +22,10 @@ public sealed class CreateExchangeRateCommandHandler(IAppDbContext ctx)
             .FirstOrDefaultAsync(c => c.Code == code, ct);
 
         if (currency is null)
-            throw new MarketNotFoundException($"Valuta {code} nije pronađena.");
+            throw new RoadwiseNotFoundException($"Valuta {code} nije pronađena.");
 
         if (currency.IsBase)
-            throw new MarketBusinessRuleException("exchangeRate.baseCurrency",
+            throw new RoadwiseBusinessRuleException("exchangeRate.baseCurrency",
                 $"Valuta {code} je bazna valuta: njen kurs je uvijek 1 i ne unosi se.");
 
         // One rate per currency and moment (also guarded by a unique index).
@@ -33,7 +33,7 @@ public sealed class CreateExchangeRateCommandHandler(IAppDbContext ctx)
             .AnyAsync(r => r.CurrencyId == currency.Id && r.ValidFromUtc == validFromUtc, ct);
 
         if (exists)
-            throw new MarketConflictException($"Za valutu {code} već postoji kurs koji važi od {validFromUtc:dd.MM.yyyy. HH:mm} (UTC).");
+            throw new RoadwiseConflictException($"Za valutu {code} već postoji kurs koji važi od {validFromUtc:dd.MM.yyyy. HH:mm} (UTC).");
 
         var rate = new ExchangeRateEntity
         {

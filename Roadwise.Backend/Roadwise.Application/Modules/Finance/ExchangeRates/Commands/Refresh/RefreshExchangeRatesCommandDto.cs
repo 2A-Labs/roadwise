@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
 
 public sealed class RefreshExchangeRatesCommandDto
 {

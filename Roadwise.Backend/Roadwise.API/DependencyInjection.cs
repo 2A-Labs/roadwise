@@ -1,9 +1,9 @@
-﻿using Market.API.Filters;
-using Market.Application.Abstractions;
-using Market.Infrastructure.Common;
-using Market.Shared.Constants;
-using Market.Shared.Dtos;
-using Market.Shared.Options;
+﻿using Roadwise.API.Filters;
+using Roadwise.Application.Abstractions;
+using Roadwise.Infrastructure.Common;
+using Roadwise.Shared.Constants;
+using Roadwise.Shared.Dtos;
+using Roadwise.Shared.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Security.Claims;
 using System.Text;
 
-namespace Market.API;
+namespace Roadwise.API;
 
 public static class DependencyInjection
 {
@@ -115,8 +115,8 @@ public static class DependencyInjection
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Market API", Version = "v1" });
-            var xml = Path.Combine(AppContext.BaseDirectory, "Market.API.xml");
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Roadwise API", Version = "v1" });
+            var xml = Path.Combine(AppContext.BaseDirectory, "Roadwise.API.xml");
             if (File.Exists(xml))
                 c.IncludeXmlComments(xml, includeControllerXmlComments: true);
 
@@ -137,7 +137,7 @@ public static class DependencyInjection
             });
         });
 
-        services.AddExceptionHandler<MarketExceptionHandler>();
+        services.AddExceptionHandler<RoadwiseExceptionHandler>();
         services.AddProblemDetails();
 
         return services;

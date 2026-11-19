@@ -1,4 +1,4 @@
-namespace Market.Application.Common;
+namespace Roadwise.Application.Common;
 
 /// <summary>
 /// URL checks shared by validators.
@@ -16,7 +16,7 @@ public static class UrlRules
     }
 
     /// <summary>
-    /// True for an application route such as <c>/products?categoryId=2</c>.
+    /// True for an application route such as <c>/client/lessons?status=2</c>.
     /// <c>//host/...</c> and backslashes are rejected, because browsers treat them as links to another site.
     /// </summary>
     public static bool IsRelativeRoute(string? value)

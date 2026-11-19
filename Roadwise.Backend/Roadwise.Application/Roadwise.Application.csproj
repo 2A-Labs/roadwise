@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Market.Domain\Market.Domain.csproj" />
-    <ProjectReference Include="..\Market.Shared\Market.Shared.csproj" />
+    <ProjectReference Include="..\Roadwise.Domain\Roadwise.Domain.csproj" />
+    <ProjectReference Include="..\Roadwise.Shared\Roadwise.Shared.csproj" />
   </ItemGroup>
 
 </Project>

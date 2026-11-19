@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.ForgotPassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ForgotPassword;
 
 /// <summary>
 /// "Forgot password": sends a one-time link for setting a new password to the email of the account.

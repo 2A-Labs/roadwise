@@ -1,6 +1,6 @@
-using Market.Domain.Entities.Finance;
+using Roadwise.Domain.Entities.Finance;
 
-namespace Market.Infrastructure.Database.Configurations.Finance;
+namespace Roadwise.Infrastructure.Database.Configurations.Finance;
 
 public sealed class CurrencyConfiguration : IEntityTypeConfiguration<CurrencyEntity>
 {

@@ -1,15 +1,15 @@
-﻿using Market.Application.Modules.Auth.Commands.ChangePassword;
-using Market.Application.Modules.Auth.Commands.ForgotPassword;
-using Market.Application.Modules.Auth.Commands.Login;
-using Market.Application.Modules.Auth.Commands.Logout;
-using Market.Application.Modules.Auth.Commands.Refresh;
-using Market.Application.Modules.Auth.Commands.Register;
-using Market.Application.Modules.Auth.Commands.ResetPassword;
-using Market.Application.Modules.Auth.Commands.UpdateMe;
-using Market.Application.Modules.Auth.Queries.GetMe;
-using Market.Shared.Dtos;
+﻿using Roadwise.Application.Modules.Auth.Commands.ChangePassword;
+using Roadwise.Application.Modules.Auth.Commands.ForgotPassword;
+using Roadwise.Application.Modules.Auth.Commands.Login;
+using Roadwise.Application.Modules.Auth.Commands.Logout;
+using Roadwise.Application.Modules.Auth.Commands.Refresh;
+using Roadwise.Application.Modules.Auth.Commands.Register;
+using Roadwise.Application.Modules.Auth.Commands.ResetPassword;
+using Roadwise.Application.Modules.Auth.Commands.UpdateMe;
+using Roadwise.Application.Modules.Auth.Queries.GetMe;
+using Roadwise.Shared.Dtos;
 
-namespace Market.API.Controllers;
+namespace Roadwise.API.Controllers;
 
 [ApiController]
 [Route("api/auth")]
@@ -55,7 +55,7 @@ public sealed class AuthController(IMediator mediator) : ControllerBase
     }
 
     /// <summary>
-    /// Registers a new customer account and logs it in (201 + tokens, same shape as login).
+    /// Registers a new user account (no roles) and logs it in (201 + tokens, same shape as login).
     /// An email that is already registered returns 400 with a field error on "email".
     /// </summary>
     [HttpPost("register")]

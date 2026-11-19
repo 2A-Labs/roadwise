@@ -1,13 +1,13 @@
-﻿using Market.Application.Abstractions;
-using Market.Application.Common;
-using Market.Shared.Options;
+﻿using Roadwise.Application.Abstractions;
+using Roadwise.Application.Common;
+using Roadwise.Shared.Options;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Market.Infrastructure.Common;
+namespace Roadwise.Infrastructure.Common;
 
 public sealed class JwtTokenService : IJwtTokenService
 {
@@ -20,7 +20,7 @@ public sealed class JwtTokenService : IJwtTokenService
         _time = time ?? throw new ArgumentNullException(nameof(time));
     }
 
-    public JwtTokenPair IssueTokens(MarketUserEntity user)
+    public JwtTokenPair IssueTokens(RoadwiseUserEntity user)
     {
         // Now from TimeProvider (consistent with the rest of the app)
         var nowInstant = _time.GetUtcNow();
@@ -33,7 +33,7 @@ public sealed class JwtTokenService : IJwtTokenService
         {
             new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
             new(ClaimTypes.NameIdentifier,   user.Id.ToString()),
-            new(ClaimTypes.Email,            user.Email),
+            new(JwtRegisteredClaimNames.Email, user.Email), // "email"; mapped to ClaimTypes.Email on the way in
             new("is_admin",    user.IsAdmin.ToString().ToLowerInvariant()),
             new("is_manager",  user.IsManager.ToString().ToLowerInvariant()),
             new("is_employee", user.IsEmployee.ToString().ToLowerInvariant()),

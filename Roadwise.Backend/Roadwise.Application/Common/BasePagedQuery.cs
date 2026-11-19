@@ -1,4 +1,4 @@
-﻿namespace Market.Application.Common;
+﻿namespace Roadwise.Application.Common;
 
 /// <summary>
 /// Base class for list queries with pagination, search, and sorting.

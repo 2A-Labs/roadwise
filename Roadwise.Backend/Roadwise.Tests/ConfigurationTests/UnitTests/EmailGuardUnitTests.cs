@@ -1,10 +1,10 @@
-using Market.Application.Abstractions;
-using Market.Infrastructure;
-using Market.Infrastructure.Email;
+using Roadwise.Application.Abstractions;
+using Roadwise.Infrastructure;
+using Roadwise.Infrastructure.Email;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Market.Tests.ConfigurationTests.UnitTests;
+namespace Roadwise.Tests.ConfigurationTests.UnitTests;
 
 /// <summary>
 /// AddInfrastructure chooses the email sender by "Email:Smtp:Host". An empty host (emails only in the log)
@@ -14,7 +14,7 @@ namespace Market.Tests.ConfigurationTests.UnitTests;
 public class EmailGuardUnitTests
 {
     private const string SmtpHost = "smtp.example.com";
-    private const string FrontendBaseUrl = "https://market.example.com";
+    private const string FrontendBaseUrl = "https://roadwise.example.com";
 
     [Theory]
     [InlineData("Development")]

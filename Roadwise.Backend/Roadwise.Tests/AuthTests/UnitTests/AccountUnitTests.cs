@@ -1,19 +1,19 @@
 using FluentValidation;
-using Market.Application.Abstractions;
-using Market.Application.Common;
-using Market.Application.Common.Exceptions;
-using Market.Application.Modules.Auth.Commands.ChangePassword;
-using Market.Application.Modules.Auth.Commands.ForgotPassword;
-using Market.Application.Modules.Auth.Commands.Login;
-using Market.Application.Modules.Auth.Commands.Refresh;
-using Market.Application.Modules.Auth.Commands.ResetPassword;
-using Market.Domain.Entities.Identity;
-using Market.Infrastructure.Common;
-using Market.Shared.Options;
+using Roadwise.Application.Abstractions;
+using Roadwise.Application.Common;
+using Roadwise.Application.Common.Exceptions;
+using Roadwise.Application.Modules.Auth.Commands.ChangePassword;
+using Roadwise.Application.Modules.Auth.Commands.ForgotPassword;
+using Roadwise.Application.Modules.Auth.Commands.Login;
+using Roadwise.Application.Modules.Auth.Commands.Refresh;
+using Roadwise.Application.Modules.Auth.Commands.ResetPassword;
+using Roadwise.Domain.Entities.Identity;
+using Roadwise.Infrastructure.Common;
+using Roadwise.Shared.Options;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Time.Testing;
 
-namespace Market.Tests.AuthTests.UnitTests;
+namespace Roadwise.Tests.AuthTests.UnitTests;
 
 /// <summary>
 /// Time-dependent account rules, with a <see cref="FakeTimeProvider"/> instead of waiting.
@@ -23,7 +23,7 @@ public class AccountUnitTests
     private const string Password = "Lozinka123";
 
     private readonly FakeTimeProvider _time = new(new DateTimeOffset(2026, 10, 19, 12, 0, 0, TimeSpan.Zero));
-    private readonly PasswordHasher<MarketUserEntity> _hasher = new();
+    private readonly PasswordHasher<RoadwiseUserEntity> _hasher = new();
 
     private DatabaseContext GetInMemoryDbContext()
     {
@@ -34,9 +34,9 @@ public class AccountUnitTests
         return new DatabaseContext(options, _time);
     }
 
-    private async Task<MarketUserEntity> AddUserAsync(DatabaseContext context)
+    private async Task<RoadwiseUserEntity> AddUserAsync(DatabaseContext context)
     {
-        var user = new MarketUserEntity
+        var user = new RoadwiseUserEntity
         {
             Firstname = "Test",
             Lastname = "Kupac",
@@ -54,8 +54,8 @@ public class AccountUnitTests
     {
         var options = Microsoft.Extensions.Options.Options.Create(new JwtOptions
         {
-            Issuer = "Market.Tests",
-            Audience = "Market.Tests",
+            Issuer = "Roadwise.Tests",
+            Audience = "Roadwise.Tests",
             Key = "UNIT_TESTS_ONLY_KEY_0123456789_ABCDEFGHIJ"
         });
 
@@ -112,7 +112,7 @@ public class AccountUnitTests
         var refresh = new RefreshTokenCommandHandler(context, jwt, _time);
 
         // Assert: the other device gets 401...
-        await Assert.ThrowsAsync<MarketUnauthorizedException>(() => refresh.Handle(
+        await Assert.ThrowsAsync<RoadwiseUnauthorizedException>(() => refresh.Handle(
             new RefreshTokenCommand { RefreshToken = otherDeviceTokens.RefreshToken },
             CancellationToken.None));
 

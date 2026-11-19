@@ -1,13 +1,13 @@
 using FluentValidation.Results;
-using Market.Application.Modules.Auth.Common;
+using Roadwise.Application.Modules.Auth.Common;
 
-namespace Market.Application.Modules.Auth.Commands.ChangePassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ChangePassword;
 
 public sealed class ChangePasswordCommandHandler(
     IAppDbContext ctx,
     IAppCurrentUser currentUser,
     IJwtTokenService jwt,
-    IPasswordHasher<MarketUserEntity> hasher,
+    IPasswordHasher<RoadwiseUserEntity> hasher,
     TimeProvider timeProvider)
     : IRequestHandler<ChangePasswordCommand, ChangePasswordCommandDto>
 {
@@ -15,12 +15,12 @@ public sealed class ChangePasswordCommandHandler(
     {
         // Required fields and the password rule are checked by ChangePasswordCommandValidator.
         var userId = currentUser.UserId
-            ?? throw new MarketUnauthorizedException("Korisnik nije prijavljen.");
+            ?? throw new RoadwiseUnauthorizedException("Korisnik nije prijavljen.");
 
         // TRACKING query: password hash and TokenVersion are changed below.
         var user = await ctx.Users
             .FirstOrDefaultAsync(x => x.Id == userId && x.IsEnabled, ct)
-            ?? throw new MarketUnauthorizedException("Korisnik nije prijavljen.");
+            ?? throw new RoadwiseUnauthorizedException("Korisnik nije prijavljen.");
 
         var verify = hasher.VerifyHashedPassword(user, user.PasswordHash, request.CurrentPassword);
         if (verify == PasswordVerificationResult.Failed)

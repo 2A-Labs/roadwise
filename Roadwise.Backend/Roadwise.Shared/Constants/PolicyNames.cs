@@ -1,7 +1,7 @@
-﻿namespace Market.Shared.Constants;
+﻿namespace Roadwise.Shared.Constants;
 
 /// <summary>
-/// Names of the authorization policies registered in Market.API (see <c>AddAuthorization</c>).
+/// Names of the authorization policies registered in Roadwise.API (see <c>AddAuthorization</c>).
 /// Use them with <c>[Authorize(Policy = PolicyNames.Admin)]</c> instead of repeating string literals.
 /// </summary>
 public static class PolicyNames

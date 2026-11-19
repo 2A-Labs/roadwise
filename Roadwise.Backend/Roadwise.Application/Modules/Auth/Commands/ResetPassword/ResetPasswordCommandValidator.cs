@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.ResetPassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ResetPassword;
 
 public sealed class ResetPasswordCommandValidator : AbstractValidator<ResetPasswordCommand>
 {

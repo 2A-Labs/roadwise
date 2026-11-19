@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.ExchangeRates.Queries.List;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Queries.List;
 
 public sealed class ListExchangeRatesQueryHandler(IAppDbContext ctx)
     : IRequestHandler<ListExchangeRatesQuery, PageResult<ListExchangeRatesQueryDto>>

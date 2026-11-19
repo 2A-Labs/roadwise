@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.Currencies.Queries.List;
+namespace Roadwise.Application.Modules.Finance.Currencies.Queries.List;
 
 /// <summary>
 /// All enabled currencies with the rate valid now (a short list, so it is not paged).

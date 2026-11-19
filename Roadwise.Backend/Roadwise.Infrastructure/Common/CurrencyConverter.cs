@@ -1,8 +1,8 @@
-using Market.Application.Abstractions;
-using Market.Application.Common;
-using Market.Application.Common.Exceptions;
+using Roadwise.Application.Abstractions;
+using Roadwise.Application.Common;
+using Roadwise.Application.Common.Exceptions;
 
-namespace Market.Infrastructure.Common;
+namespace Roadwise.Infrastructure.Common;
 
 /// <summary>
 /// <see cref="ICurrencyConverter"/> that reads currencies and exchange rates from the database.
@@ -61,7 +61,7 @@ public sealed class CurrencyConverter(IAppDbContext db, TimeProvider timeProvide
             .FirstOrDefaultAsync(ct);
 
         if (currency is null)
-            throw new MarketNotFoundException($"Valuta {normalizedCode} nije pronađena ili nije omogućena.");
+            throw new RoadwiseNotFoundException($"Valuta {normalizedCode} nije pronađena ili nije omogućena.");
 
         if (currency.IsBase)
             return new CurrencyRate(currency.Code, currency.DecimalPlaces, 1m, null);
@@ -76,7 +76,7 @@ public sealed class CurrencyConverter(IAppDbContext db, TimeProvider timeProvide
             .FirstOrDefaultAsync(ct);
 
         if (rate is null)
-            throw new MarketBusinessRuleException("currency.rate.notFound",
+            throw new RoadwiseBusinessRuleException("currency.rate.notFound",
                 $"Za valutu {currency.Code} ne postoji kurs koji važi na dan {atUtc:dd.MM.yyyy.}");
 
         return new CurrencyRate(currency.Code, currency.DecimalPlaces, rate.RateToBase, rate.ValidFromUtc);

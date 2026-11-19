@@ -1,13 +1,13 @@
-using Market.Application.Abstractions;
-using Market.Application.Common.Exceptions;
-using Market.Domain.Entities.Finance;
-using Market.Shared.Options;
+using Roadwise.Application.Abstractions;
+using Roadwise.Application.Common.Exceptions;
+using Roadwise.Domain.Entities.Finance;
+using Roadwise.Shared.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Json;
 using System.Text.Json;
 
-namespace Market.Infrastructure.Common;
+namespace Roadwise.Infrastructure.Common;
 
 /// <summary>
 /// Downloads the reference rates of the European Central Bank from the free Frankfurter API
@@ -69,9 +69,9 @@ public sealed class FrankfurterExchangeRateProvider(
         return new ExchangeRatesSnapshot(SourceName, validFromUtc, ratesToBase);
     }
 
-    private static MarketBusinessRuleException Unavailable(Exception? innerException)
+    private static RoadwiseBusinessRuleException Unavailable(Exception? innerException)
     {
-        return new MarketBusinessRuleException("exchangeRates.provider.unavailable",
+        return new RoadwiseBusinessRuleException("exchangeRates.provider.unavailable",
             "Kursna lista nije preuzeta jer servis Frankfurter trenutno nije dostupan. Pokušajte ponovo kasnije.",
             innerException);
     }

@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.UpdateMe;
+namespace Roadwise.Application.Modules.Auth.Commands.UpdateMe;
 
 /// <summary>
 /// Changes the profile of the logged-in user. Email, password and roles are not changed here.

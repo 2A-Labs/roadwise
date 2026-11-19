@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.Currencies.Queries.Convert;
+namespace Roadwise.Application.Modules.Finance.Currencies.Queries.Convert;
 
 /// <summary>
 /// Converts an amount between two currencies (query string: <c>?amount=100&amp;from=EUR&amp;to=BAM&amp;atUtc=2026-05-01T00:00:00Z</c>).

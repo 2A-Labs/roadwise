@@ -1,10 +1,10 @@
-﻿using Market.Application.Modules.Auth.Common;
+﻿using Roadwise.Application.Modules.Auth.Common;
 
-namespace Market.Application.Modules.Auth.Commands.Refresh;
+namespace Roadwise.Application.Modules.Auth.Commands.Refresh;
 
 /// <summary>
 /// Rotates the refresh token: the presented token is revoked and a new access/refresh pair is issued.
-/// Every rejection is a <see cref="MarketUnauthorizedException"/> (HTTP 401) with the same message.
+/// Every rejection is a <see cref="RoadwiseUnauthorizedException"/> (HTTP 401) with the same message.
 /// </summary>
 public sealed class RefreshTokenCommandHandler(
     IAppDbContext ctx,
@@ -33,7 +33,7 @@ public sealed class RefreshTokenCommandHandler(
             .FirstOrDefaultAsync(x => x.TokenHash == incomingHash && !x.IsDeleted, ct);
 
         if (rt is null)
-            throw new MarketUnauthorizedException(InvalidTokenMessage);
+            throw new RoadwiseUnauthorizedException(InvalidTokenMessage);
 
         var nowUtc = timeProvider.GetUtcNow().UtcDateTime;
 
@@ -42,7 +42,7 @@ public sealed class RefreshTokenCommandHandler(
         //    so all sessions of that user are closed:
         //    - every active refresh token of the user is revoked,
         //    - TokenVersion is incremented, so already issued access tokens are rejected too
-        //      (the "ver" claim is checked on every request, see Market.API DependencyInjection).
+        //      (the "ver" claim is checked on every request, see Roadwise.API DependencyInjection).
         //    Exception: a token rotated within the last few seconds (ReuseGracePeriod) is a race between
         //    two tabs/requests of the same client, so only this request is rejected.
         if (rt.IsRevoked)
@@ -54,19 +54,19 @@ public sealed class RefreshTokenCommandHandler(
                 await ctx.SaveChangesAsync(ct);
             }
 
-            throw new MarketUnauthorizedException(InvalidTokenMessage);
+            throw new RoadwiseUnauthorizedException(InvalidTokenMessage);
         }
 
         if (rt.ExpiresAtUtc <= nowUtc)
-            throw new MarketUnauthorizedException(InvalidTokenMessage);
+            throw new RoadwiseUnauthorizedException(InvalidTokenMessage);
 
         // 4) Fingerprint check: a token bound to a device can only be refreshed from that device.
         if (rt.Fingerprint is not null && rt.Fingerprint != request.Fingerprint)
-            throw new MarketUnauthorizedException(InvalidTokenMessage);
+            throw new RoadwiseUnauthorizedException(InvalidTokenMessage);
 
         var user = rt.User;
         if (!user.IsEnabled || user.IsDeleted)
-            throw new MarketUnauthorizedException(InvalidTokenMessage);
+            throw new RoadwiseUnauthorizedException(InvalidTokenMessage);
 
         // 5) Rotation: revoke the old one
         rt.IsRevoked = true;

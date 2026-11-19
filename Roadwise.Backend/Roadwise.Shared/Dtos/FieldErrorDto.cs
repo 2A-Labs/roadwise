@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Market.Shared.Dtos;
+namespace Roadwise.Shared.Dtos;
 
 /// <summary>
 /// Represents a single field-level validation error.

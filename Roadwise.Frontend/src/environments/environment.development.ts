@@ -3,6 +3,6 @@
 // Ne importuj ga direktno – u kodu uvijek importuj 'environments/environment'.
 export const environment = {
   production: false,
-  // Market.API lokalno; ako backend pokrećeš samo na http-u: http://localhost:5100
+  // Roadwise.API lokalno; ako backend pokrećeš samo na http-u: http://localhost:5100
   apiUrl: 'https://localhost:7100'
 };

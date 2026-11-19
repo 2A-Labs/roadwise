@@ -1,10 +1,10 @@
-using Market.Application.Modules.Finance.Currencies.Queries.Convert;
-using Market.Application.Modules.Finance.Currencies.Queries.List;
-using Market.Shared.Dtos;
+using Roadwise.Application.Modules.Finance.Currencies.Queries.Convert;
+using Roadwise.Application.Modules.Finance.Currencies.Queries.List;
+using Roadwise.Shared.Dtos;
 using System.Net;
 using System.Net.Http.Json;
 
-namespace Market.Tests.CurrencyTests.IntegrationTests;
+namespace Roadwise.Tests.CurrencyTests.IntegrationTests;
 
 [Collection(IntegrationTestCollection.Name)]
 public class CurrenciesIntegrationTests
@@ -79,8 +79,8 @@ public class CurrenciesIntegrationTests
     [Theory]
     // The validator checks only the format of the code (no database access); whether the currency exists
     // and is not the base currency needs the database, so CreateExchangeRateCommandHandler checks it.
-    [InlineData("XYZ", HttpStatusCode.NotFound)] // unknown currency → MarketNotFoundException
-    [InlineData("BAM", HttpStatusCode.Conflict)] // base currency → MarketBusinessRuleException
+    [InlineData("XYZ", HttpStatusCode.NotFound)] // unknown currency → RoadwiseNotFoundException
+    [InlineData("BAM", HttpStatusCode.Conflict)] // base currency → RoadwiseBusinessRuleException
     [InlineData("US", HttpStatusCode.BadRequest)] // wrong format → validator
     public async Task Post_Rate_CurrencyCode_IsCheckedByValidatorOrHandler(string code, HttpStatusCode expected)
     {

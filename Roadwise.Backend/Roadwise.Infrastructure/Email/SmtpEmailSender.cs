@@ -1,11 +1,11 @@
-using Market.Application.Abstractions;
-using Market.Shared.Options;
+using Roadwise.Application.Abstractions;
+using Roadwise.Shared.Options;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 
-namespace Market.Infrastructure.Email;
+namespace Roadwise.Infrastructure.Email;
 
 /// <summary>
 /// Sends emails through the SMTP server from "Email:Smtp" (used when Host is set).

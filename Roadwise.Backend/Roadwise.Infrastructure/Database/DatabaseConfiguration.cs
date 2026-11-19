@@ -1,9 +1,9 @@
-﻿using Market.Domain.Common;
-using Market.Infrastructure.Database.Seeders;
+﻿using Roadwise.Domain.Common;
+using Roadwise.Infrastructure.Database.Seeders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Linq.Expressions;
 
-namespace Market.Infrastructure.Database;
+namespace Roadwise.Infrastructure.Database;
 
 public partial class DatabaseContext
 {

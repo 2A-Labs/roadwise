@@ -1,7 +1,7 @@
-namespace Market.Application.Abstractions;
+namespace Roadwise.Application.Abstractions;
 
 /// <summary>
-/// Stores uploaded files (e.g. product images) and returns the URL they are served from.
+/// Stores uploaded files (e.g. question images, learning documents) and returns the URL they are served from.
 /// <para>
 /// The starter implementation (LocalFileStorage) writes into <c>wwwroot/uploads</c> of the API, which is
 /// served as static files. Another implementation (e.g. Azure Blob Storage) can replace it without changing handlers.
@@ -11,8 +11,8 @@ public interface IFileStorage
 {
     /// <summary>
     /// Saves <paramref name="content"/> as a new file with a random name in <paramref name="folder"/>
-    /// (relative to the uploads root, e.g. "products") and returns its relative URL,
-    /// e.g. <c>/uploads/products/3f2a…9c.webp</c>.
+    /// (relative to the uploads root, e.g. "documents") and returns its relative URL,
+    /// e.g. <c>/uploads/documents/3f2a…9c.webp</c>.
     /// </summary>
     /// <param name="content">File content.</param>
     /// <param name="folder">Sub-folder of the uploads root (letters, digits and '-' only).</param>

@@ -1,6 +1,6 @@
-using Market.Domain.Common;
+using Roadwise.Domain.Common;
 
-namespace Market.Domain.Entities.Identity;
+namespace Roadwise.Domain.Entities.Identity;
 
 /// <summary>
 /// One-time token from the "forgot password" email. Only the SHA-256 hash is stored, like for refresh tokens,
@@ -10,7 +10,7 @@ public sealed class PasswordResetTokenEntity : BaseEntity
 {
     public int UserId { get; set; }
 
-    public MarketUserEntity User { get; set; } = default!;
+    public RoadwiseUserEntity User { get; set; } = default!;
 
     /// <summary>
     /// SHA-256 hash of the token from the link (base64url), never the token itself.

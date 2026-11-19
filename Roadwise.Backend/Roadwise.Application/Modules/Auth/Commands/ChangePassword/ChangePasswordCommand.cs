@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.ChangePassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ChangePassword;
 
 /// <summary>
 /// Password change of the logged-in user. Other devices are logged out;

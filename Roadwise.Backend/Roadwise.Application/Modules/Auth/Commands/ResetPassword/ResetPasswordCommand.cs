@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.ResetPassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ResetPassword;
 
 /// <summary>
 /// Sets a new password with the token from the "forgot password" email.

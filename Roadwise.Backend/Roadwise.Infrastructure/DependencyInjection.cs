@@ -1,17 +1,17 @@
-﻿using Market.Application.Abstractions;
-using Market.Application.Abstractions.Caching;
-using Market.Infrastructure.Caching;
-using Market.Infrastructure.Common;
-using Market.Infrastructure.Database;
-using Market.Infrastructure.Email;
-using Market.Shared.Constants;
-using Market.Shared.Options;
+﻿using Roadwise.Application.Abstractions;
+using Roadwise.Application.Abstractions.Caching;
+using Roadwise.Infrastructure.Caching;
+using Roadwise.Infrastructure.Common;
+using Roadwise.Infrastructure.Database;
+using Roadwise.Infrastructure.Email;
+using Roadwise.Shared.Constants;
+using Roadwise.Shared.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
-namespace Market.Infrastructure;
+namespace Roadwise.Infrastructure;
 
 public static class DependencyInjection
 {
@@ -44,7 +44,7 @@ public static class DependencyInjection
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<DatabaseContext>());
 
         // Identity hasher
-        services.AddScoped<IPasswordHasher<MarketUserEntity>, PasswordHasher<MarketUserEntity>>();
+        services.AddScoped<IPasswordHasher<RoadwiseUserEntity>, PasswordHasher<RoadwiseUserEntity>>();
 
         // Token service (reads JwtOptions via IOptions<JwtOptions>)
         services.AddTransient<IJwtTokenService, JwtTokenService>();
@@ -59,7 +59,7 @@ public static class DependencyInjection
         // Currency conversion (reads rates from the database)
         services.AddScoped<ICurrencyConverter, CurrencyConverter>();
 
-        // Uploaded files (product images) in wwwroot/uploads
+        // Uploaded files (images, documents) in wwwroot/uploads
         services.AddSingleton<IFileStorage, LocalFileStorage>();
 
         AddCaching(services, configuration);
@@ -98,7 +98,7 @@ public static class DependencyInjection
     }
 
     /// <summary>
-    /// Stops the startup (before the database is touched), like the Jwt:Key check in Market.API, when the application
+    /// Stops the startup (before the database is touched), like the Jwt:Key check in Roadwise.API, when the application
     /// runs outside Development, Testing and IntegrationTests and:
     /// <list type="bullet">
     /// <item>Email:Smtp:Host is empty — emails (with password reset links) would end up in the log instead of the inbox,</item>
@@ -144,7 +144,7 @@ public static class DependencyInjection
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = redisConnectionString;
-                options.InstanceName = "Market:";
+                options.InstanceName = "Roadwise:";
             });
         }
         else
@@ -153,7 +153,6 @@ public static class DependencyInjection
         }
 
         services.AddSingleton<ICacheService, CacheService>();
-        services.AddSingleton<ICatalogCacheVersionService, CatalogCacheVersionService>();
     }
 
     /// <summary>

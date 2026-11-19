@@ -1,4 +1,4 @@
-namespace Market.Application.Abstractions;
+namespace Roadwise.Application.Abstractions;
 
 /// <summary>
 /// External source of current exchange rates (e.g. the ECB rates through the Frankfurter API).

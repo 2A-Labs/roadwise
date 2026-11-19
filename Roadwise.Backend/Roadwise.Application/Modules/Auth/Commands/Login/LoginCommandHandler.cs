@@ -1,11 +1,11 @@
-﻿using Market.Application.Modules.Auth.Common;
+﻿using Roadwise.Application.Modules.Auth.Common;
 
-namespace Market.Application.Modules.Auth.Commands.Login;
+namespace Roadwise.Application.Modules.Auth.Commands.Login;
 
 public sealed class LoginCommandHandler(
     IAppDbContext ctx,
     IJwtTokenService jwt,
-    IPasswordHasher<MarketUserEntity> hasher)
+    IPasswordHasher<RoadwiseUserEntity> hasher)
     : IRequestHandler<LoginCommand, LoginCommandDto>
 {
     /// <summary>
@@ -20,11 +20,11 @@ public sealed class LoginCommandHandler(
 
         var user = await ctx.Users
             .FirstOrDefaultAsync(x => x.Email.ToLower() == email && x.IsEnabled && !x.IsDeleted, ct)
-            ?? throw new MarketUnauthorizedException(InvalidCredentialsMessage);
+            ?? throw new RoadwiseUnauthorizedException(InvalidCredentialsMessage);
 
         var verify = hasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
         if (verify == PasswordVerificationResult.Failed)
-            throw new MarketUnauthorizedException(InvalidCredentialsMessage);
+            throw new RoadwiseUnauthorizedException(InvalidCredentialsMessage);
 
         // New access/refresh pair; the refresh token is stored as a hash (see UserSessionExtensions)
         var tokens = ctx.StartSession(jwt, user, request.Fingerprint);

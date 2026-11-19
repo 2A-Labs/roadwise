@@ -1,11 +1,11 @@
-using Market.Application.Modules.Auth.Common;
+using Roadwise.Application.Modules.Auth.Common;
 
-namespace Market.Application.Modules.Auth.Commands.Register;
+namespace Roadwise.Application.Modules.Auth.Commands.Register;
 
 public sealed class RegisterCommandHandler(
     IAppDbContext ctx,
     IJwtTokenService jwt,
-    IPasswordHasher<MarketUserEntity> hasher)
+    IPasswordHasher<RoadwiseUserEntity> hasher)
     : IRequestHandler<RegisterCommand, RegisterCommandDto>
 {
     public async Task<RegisterCommandDto> Handle(RegisterCommand request, CancellationToken ct)
@@ -16,10 +16,10 @@ public sealed class RegisterCommandHandler(
         // (the unique index on Email also ignores them and stays as the last guard).
         var email = request.Email.Trim().ToLowerInvariant();
         if (await ctx.Users.AnyAsync(u => u.Email.ToLower() == email, ct))
-            throw new MarketConflictException("Email je već registrovan.");
+            throw new RoadwiseConflictException("Email je već registrovan.");
 
-        // A new account is always a customer: roles cannot be chosen during registration.
-        var user = new MarketUserEntity
+        // A new account never has a role: roles cannot be chosen during registration.
+        var user = new RoadwiseUserEntity
         {
             Firstname = request.Firstname.Trim(),
             Lastname = request.Lastname.Trim(),

@@ -1,10 +1,9 @@
-﻿// MarketUserEntity.cs
-using Market.Domain.Common;
-using Market.Domain.Entities.Catalog;
+// RoadwiseUserEntity.cs
+using Roadwise.Domain.Common;
 
-namespace Market.Domain.Entities.Identity;
+namespace Roadwise.Domain.Entities.Identity;
 
-public sealed class MarketUserEntity : BaseEntity
+public sealed class RoadwiseUserEntity : BaseEntity
 {
     public string Firstname { get; set; } = string.Empty;
     public string Lastname { get; set; } = string.Empty;
@@ -27,9 +26,6 @@ public sealed class MarketUserEntity : BaseEntity
     public int TokenVersion { get; set; } = 0;// For global revocation
     public bool IsEnabled { get; set; } = true; // New accounts are enabled unless explicitly disabled
     public ICollection<RefreshTokenEntity> RefreshTokens { get; private set; } = new List<RefreshTokenEntity>();
-
-    // Many-to-many: User's favorite products
-    public ICollection<UserProductFavoriteEntity> FavoriteProducts { get; private set; } = new List<UserProductFavoriteEntity>();
 
     /// <summary>
     /// Single source of truth for technical/business constraints.

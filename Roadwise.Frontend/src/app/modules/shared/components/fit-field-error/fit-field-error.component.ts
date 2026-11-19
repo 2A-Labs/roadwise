@@ -13,7 +13,7 @@ import {
  *
  * Poruka specifična za formu (ključ greške → ključ prevoda):
  *   <app-fit-field-error [control]="form.controls.name"
- *                        [messages]="{ nameTaken: 'PRODUCTS.FORM.NAME_TAKEN' }" />
+ *                        [messages]="{ nameTaken: 'VALIDATION.NAME_TAKEN' }" />
  *
  * Poruke i ključevi prevoda su u core/forms/validation-messages.ts.
  */

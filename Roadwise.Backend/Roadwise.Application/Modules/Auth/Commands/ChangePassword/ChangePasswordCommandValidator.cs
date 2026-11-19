@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.ChangePassword;
+namespace Roadwise.Application.Modules.Auth.Commands.ChangePassword;
 
 public sealed class ChangePasswordCommandValidator : AbstractValidator<ChangePasswordCommand>
 {

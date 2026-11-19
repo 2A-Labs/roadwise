@@ -1,10 +1,10 @@
-﻿using Market.Infrastructure.Database;
-using Market.Infrastructure.Database.Seeders;
-using Market.Shared.Constants;
+﻿using Roadwise.Infrastructure.Database;
+using Roadwise.Infrastructure.Database.Seeders;
+using Roadwise.Shared.Constants;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Market.Infrastructure;
+namespace Roadwise.Infrastructure;
 
 public static class DatabaseInitializer
 {

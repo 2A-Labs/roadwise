@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.Currencies.Queries.List;
+namespace Roadwise.Application.Modules.Finance.Currencies.Queries.List;
 
 public sealed class ListCurrenciesQueryDto
 {

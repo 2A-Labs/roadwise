@@ -1,4 +1,4 @@
-namespace Market.Application.Common;
+namespace Roadwise.Application.Common;
 
 /// <summary>
 /// Password rule shared by every validator that sets a new password (register, reset password, change password),

@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Delete;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Delete;
 
 public sealed class DeleteExchangeRateCommand : IRequest<Unit>
 {

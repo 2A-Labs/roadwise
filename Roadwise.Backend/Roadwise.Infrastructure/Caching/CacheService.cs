@@ -1,8 +1,8 @@
-using Market.Application.Abstractions.Caching;
+using Roadwise.Application.Abstractions.Caching;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 
-namespace Market.Infrastructure.Caching;
+namespace Roadwise.Infrastructure.Caching;
 
 /// <summary>
 /// <see cref="ICacheService"/> over <see cref="IDistributedCache"/>: Redis when <c>ConnectionStrings:Redis</c>

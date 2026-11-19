@@ -1,4 +1,4 @@
-﻿namespace Market.Application.Common.Exceptions;
+﻿namespace Roadwise.Application.Common.Exceptions;
 
 /// <summary>
 /// Represents an error that occurs when a business rule is violated.
@@ -7,19 +7,19 @@
 /// but situations where a request cannot be executed because it would
 /// violate business logic.
 ///
-/// Example: attempting to disable a category that still contains active products.
+/// Example: cancelling a driving lesson booking after the cancellation deadline.
 /// </summary>
-public sealed class MarketBusinessRuleException : Exception
+public sealed class RoadwiseBusinessRuleException : Exception
 {
     public string Code { get; }
 
-    public MarketBusinessRuleException(string code, string message)
+    public RoadwiseBusinessRuleException(string code, string message)
         : base(message)
     {
         Code = code;
     }
 
-    public MarketBusinessRuleException(string code, string message, Exception? innerException)
+    public RoadwiseBusinessRuleException(string code, string message, Exception? innerException)
         : base(message, innerException)
     {
         Code = code;

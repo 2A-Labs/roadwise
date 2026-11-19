@@ -1,14 +1,14 @@
-using Market.Application.Modules.Auth.Commands.ChangePassword;
-using Market.Application.Modules.Auth.Commands.Register;
-using Market.Application.Modules.Auth.Queries.GetMe;
-using Market.Shared.Dtos;
+using Roadwise.Application.Modules.Auth.Commands.ChangePassword;
+using Roadwise.Application.Modules.Auth.Commands.Register;
+using Roadwise.Application.Modules.Auth.Queries.GetMe;
+using Roadwise.Shared.Dtos;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Market.Tests.AuthTests.IntegrationTests;
+namespace Roadwise.Tests.AuthTests.IntegrationTests;
 
 /// <summary>
 /// Register, forgot/reset password, profile (me) and change password.

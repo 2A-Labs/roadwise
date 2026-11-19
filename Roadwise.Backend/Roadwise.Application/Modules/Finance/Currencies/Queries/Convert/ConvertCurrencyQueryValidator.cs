@@ -1,6 +1,6 @@
-using Market.Domain.Entities.Finance;
+using Roadwise.Domain.Entities.Finance;
 
-namespace Market.Application.Modules.Finance.Currencies.Queries.Convert;
+namespace Roadwise.Application.Modules.Finance.Currencies.Queries.Convert;
 
 public sealed class ConvertCurrencyQueryValidator : AbstractValidator<ConvertCurrencyQuery>
 {

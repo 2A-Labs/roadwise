@@ -1,7 +1,7 @@
-﻿using Market.API;
-using Market.API.Middleware;
-using Market.Application;
-using Market.Infrastructure;
+﻿using Roadwise.API;
+using Roadwise.API.Middleware;
+using Roadwise.Application;
+using Roadwise.Infrastructure;
 using Serilog;
 
 public partial class Program
@@ -19,13 +19,13 @@ public partial class Program
 
         try
         {
-            Log.Information("Starting Market API...");
+            Log.Information("Starting Roadwise API...");
 
             //
             // 1) Standard builder (includes appsettings.json, appsettings.{ENV}.json,
             //    environment variables, user-secrets (Dev), and command-line args)
             //    WebRootPath is set explicitly, so the wwwroot folder is created on startup if it is missing
-            //    (otherwise ASP.NET Core serves no static files, e.g. uploaded product images).
+            //    (otherwise ASP.NET Core serves no static files, e.g. uploaded images and documents).
             //
             var builder = WebApplication.CreateBuilder(new WebApplicationOptions
             {
@@ -90,7 +90,7 @@ public partial class Program
             }
 
             // Request logging is the outermost middleware, so it also measures the exception handler
-            // and logs the final status code (e.g. 404/409/500 set by MarketExceptionHandler).
+            // and logs the final status code (e.g. 404/409/500 set by RoadwiseExceptionHandler).
             app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
             // Global exception handler (IExceptionHandler)
@@ -120,7 +120,7 @@ public partial class Program
             // Database migrations + seeding
             await app.Services.InitializeDatabaseAsync(app.Environment);
 
-            Log.Information("Market API started successfully.");
+            Log.Information("Roadwise API started successfully.");
             app.Run();
         }
         catch (HostAbortedException)
@@ -132,7 +132,7 @@ public partial class Program
         catch (Exception ex)
         {
             // Any startup failure will be logged here
-            Log.Fatal(ex, "Market API terminated unexpectedly.");
+            Log.Fatal(ex, "Roadwise API terminated unexpectedly.");
         }
         finally
         {

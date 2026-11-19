@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Commands.UpdateMe;
+namespace Roadwise.Application.Modules.Auth.Commands.UpdateMe;
 
 /// <summary>
 /// Same rules for these fields as <see cref="Register.RegisterCommandValidator"/>.
@@ -9,20 +9,20 @@ public sealed class UpdateMeCommandValidator : AbstractValidator<UpdateMeCommand
     {
         RuleFor(x => x.Firstname)
             .NotEmpty().WithMessage("Ime je obavezno.")
-            .MaximumLength(MarketUserEntity.Constraints.FirstnameMaxLength)
-            .WithMessage($"Ime može imati najviše {MarketUserEntity.Constraints.FirstnameMaxLength} znakova.");
+            .MaximumLength(RoadwiseUserEntity.Constraints.FirstnameMaxLength)
+            .WithMessage($"Ime može imati najviše {RoadwiseUserEntity.Constraints.FirstnameMaxLength} znakova.");
 
         RuleFor(x => x.Lastname)
             .NotEmpty().WithMessage("Prezime je obavezno.")
-            .MaximumLength(MarketUserEntity.Constraints.LastnameMaxLength)
-            .WithMessage($"Prezime može imati najviše {MarketUserEntity.Constraints.LastnameMaxLength} znakova.");
+            .MaximumLength(RoadwiseUserEntity.Constraints.LastnameMaxLength)
+            .WithMessage($"Prezime može imati najviše {RoadwiseUserEntity.Constraints.LastnameMaxLength} znakova.");
 
         RuleFor(x => x.Address)
-            .MaximumLength(MarketUserEntity.Constraints.AddressMaxLength)
-            .WithMessage($"Adresa može imati najviše {MarketUserEntity.Constraints.AddressMaxLength} znakova.");
+            .MaximumLength(RoadwiseUserEntity.Constraints.AddressMaxLength)
+            .WithMessage($"Adresa može imati najviše {RoadwiseUserEntity.Constraints.AddressMaxLength} znakova.");
 
         RuleFor(x => x.City)
-            .MaximumLength(MarketUserEntity.Constraints.CityMaxLength)
-            .WithMessage($"Grad može imati najviše {MarketUserEntity.Constraints.CityMaxLength} znakova.");
+            .MaximumLength(RoadwiseUserEntity.Constraints.CityMaxLength)
+            .WithMessage($"Grad može imati najviše {RoadwiseUserEntity.Constraints.CityMaxLength} znakova.");
     }
 }

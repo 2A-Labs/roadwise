@@ -1,15 +1,15 @@
-using Market.Application.Modules.Finance.Currencies.Queries.Convert;
-using Market.Application.Modules.Finance.Currencies.Queries.List;
-using Market.Application.Modules.Finance.ExchangeRates.Commands.Create;
-using Market.Application.Modules.Finance.ExchangeRates.Commands.Delete;
-using Market.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
-using Market.Application.Modules.Finance.ExchangeRates.Queries.List;
-using Market.Shared.Constants;
+using Roadwise.Application.Modules.Finance.Currencies.Queries.Convert;
+using Roadwise.Application.Modules.Finance.Currencies.Queries.List;
+using Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Create;
+using Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Delete;
+using Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
+using Roadwise.Application.Modules.Finance.ExchangeRates.Queries.List;
+using Roadwise.Shared.Constants;
 
-namespace Market.API.Controllers;
+namespace Roadwise.API.Controllers;
 
 /// <summary>
-/// Currencies and exchange rates. Prices and orders stay in KM (BAM); conversion is for display only.
+/// Currencies and exchange rates. Amounts are stored in KM (BAM) unless a feature stores its own currency and rate.
 /// </summary>
 [ApiController]
 [Route("[controller]")]

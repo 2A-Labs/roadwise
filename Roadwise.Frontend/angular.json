@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "market-frontend": {
+    "roadwise-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -121,13 +121,13 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "market-frontend:build:production"
+              "buildTarget": "roadwise-frontend:build:production"
             },
             "testing": {
-              "buildTarget": "market-frontend:build:testing"
+              "buildTarget": "roadwise-frontend:build:testing"
             },
             "development": {
-              "buildTarget": "market-frontend:build:development"
+              "buildTarget": "roadwise-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"

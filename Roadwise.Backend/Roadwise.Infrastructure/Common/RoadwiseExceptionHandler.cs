@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using Market.Application.Common.Exceptions;
-using Market.Shared.Dtos;
+using Roadwise.Application.Common.Exceptions;
+using Roadwise.Shared.Dtos;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
@@ -8,23 +8,23 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Security.Claims;
 
-namespace Market.Infrastructure.Common;
+namespace Roadwise.Infrastructure.Common;
 
 /// <summary>
 /// Global exception handler for unhandled exceptions.
 /// Converts every exception into the same <see cref="ErrorDto"/> JSON shape:
 /// <list type="bullet">
 /// <item>ValidationException → 400 "validation.error" (+ field errors)</item>
-/// <item>MarketUnauthorizedException → 401 "auth.unauthorized"</item>
-/// <item>MarketForbiddenException → 403 "auth.forbidden"</item>
-/// <item>MarketNotFoundException → 404 "entity.error"</item>
-/// <item>MarketConflictException / MarketBusinessRuleException → 409 "entity.error"</item>
+/// <item>RoadwiseUnauthorizedException → 401 "auth.unauthorized"</item>
+/// <item>RoadwiseForbiddenException → 403 "auth.forbidden"</item>
+/// <item>RoadwiseNotFoundException → 404 "entity.error"</item>
+/// <item>RoadwiseConflictException / RoadwiseBusinessRuleException → 409 "entity.error"</item>
 /// <item>DbUpdateException → 409 "database.error"</item>
 /// <item>anything else → 500 "internal.error"</item>
 /// </list>
 /// </summary>
-public sealed class MarketExceptionHandler(
-    ILogger<MarketExceptionHandler> logger,
+public sealed class RoadwiseExceptionHandler(
+    ILogger<RoadwiseExceptionHandler> logger,
     IHostEnvironment env
 ) : IExceptionHandler
 {
@@ -67,10 +67,10 @@ public sealed class MarketExceptionHandler(
     private static int GetStatusCode(Exception ex) => ex switch
     {
         ValidationException => StatusCodes.Status400BadRequest,
-        MarketUnauthorizedException => StatusCodes.Status401Unauthorized,
-        MarketForbiddenException => StatusCodes.Status403Forbidden,
-        MarketNotFoundException => StatusCodes.Status404NotFound,
-        MarketConflictException or MarketBusinessRuleException => StatusCodes.Status409Conflict,
+        RoadwiseUnauthorizedException => StatusCodes.Status401Unauthorized,
+        RoadwiseForbiddenException => StatusCodes.Status403Forbidden,
+        RoadwiseNotFoundException => StatusCodes.Status404NotFound,
+        RoadwiseConflictException or RoadwiseBusinessRuleException => StatusCodes.Status409Conflict,
         DbUpdateException => StatusCodes.Status409Conflict,
         _ => StatusCodes.Status500InternalServerError
     };
@@ -103,19 +103,19 @@ public sealed class MarketExceptionHandler(
                 }
                 break;
 
-            case MarketUnauthorizedException:
+            case RoadwiseUnauthorizedException:
                 code = "auth.unauthorized";
                 message = ex.Message;
                 break;
 
-            case MarketForbiddenException:
+            case RoadwiseForbiddenException:
                 code = "auth.forbidden";
                 message = ex.Message;
                 break;
 
-            case MarketNotFoundException:
-            case MarketConflictException:
-            case MarketBusinessRuleException:
+            case RoadwiseNotFoundException:
+            case RoadwiseConflictException:
+            case RoadwiseBusinessRuleException:
                 code = "entity.error";
                 message = ex.Message;
                 break;

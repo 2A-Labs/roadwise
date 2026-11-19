@@ -1,6 +1,6 @@
-using Market.Domain.Entities.Finance;
+using Roadwise.Domain.Entities.Finance;
 
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Create;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Create;
 
 public sealed class CreateExchangeRateCommandValidator : AbstractValidator<CreateExchangeRateCommand>
 {

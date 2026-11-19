@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Auth.Queries.GetMe;
+namespace Roadwise.Application.Modules.Auth.Queries.GetMe;
 
 public sealed class GetMeQueryDto
 {

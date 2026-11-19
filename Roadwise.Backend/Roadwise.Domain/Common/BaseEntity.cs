@@ -1,4 +1,4 @@
-﻿namespace Market.Domain.Common;
+﻿namespace Roadwise.Domain.Common;
 
 public class BaseEntity
 {

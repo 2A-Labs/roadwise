@@ -1,4 +1,4 @@
-namespace Market.Application.Common;
+namespace Roadwise.Application.Common;
 
 public static class DateTimeExtensions
 {

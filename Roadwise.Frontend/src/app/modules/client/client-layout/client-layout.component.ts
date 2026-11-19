@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 /**
  * Layout klijentskog dijela (/client/...): isti header kao javni dio + stranica.
- * Nove stranice za kupce dodaj kao children u client-routing-module.ts.
+ * Nove stranice za kandidate dodaj kao children u client-routing-module.ts.
  */
 @Component({
   selector: 'app-client-layout',

@@ -1,12 +1,12 @@
-using Market.Application.Abstractions;
+using Roadwise.Application.Abstractions;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Market.Infrastructure.Common;
+namespace Roadwise.Infrastructure.Common;
 
 /// <summary>
 /// <see cref="IFileStorage"/> that writes files into <c>wwwroot/uploads</c> of the API.
-/// Program.cs serves wwwroot as static files, so a file saved as <c>wwwroot/uploads/products/x.webp</c>
-/// is available anonymously at <c>https://localhost:7100/uploads/products/x.webp</c>.
+/// Program.cs serves wwwroot as static files, so a file saved as <c>wwwroot/uploads/documents/x.webp</c>
+/// is available anonymously at <c>https://localhost:7100/uploads/documents/x.webp</c>.
 /// <para>
 /// Uploaded files are user data, not source code: <c>wwwroot/uploads/</c> is in .gitignore.
 /// On a server with several instances, use shared storage (e.g. Azure Blob Storage) instead.
@@ -61,7 +61,7 @@ public sealed class LocalFileStorage : IFileStorage
     }
 
     /// <summary>
-    /// Maps "/uploads/products/x.webp" to the physical path and makes sure the result is inside the uploads root.
+    /// Maps "/uploads/documents/x.webp" to the physical path and makes sure the result is inside the uploads root.
     /// </summary>
     private string ToFullPath(string relativeUrl)
     {

@@ -1,4 +1,4 @@
-﻿namespace Market.Application.Common;
+﻿namespace Roadwise.Application.Common;
 
 /// <summary>
 /// Paging parameters for list queries (query string: <c>paging.page</c>, <c>paging.pageSize</c>).

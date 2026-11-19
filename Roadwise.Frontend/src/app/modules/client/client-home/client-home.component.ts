@@ -3,7 +3,7 @@ import { CurrentUserService } from '../../../core/services/auth/current-user.ser
 
 /**
  * Početna stranica za prijavljene korisnike koji nisu admin (ruta /client).
- * Ovdje (i kao nove child rute u client-routing-module.ts) idu funkcionalnosti za kupce.
+ * Ovdje (i kao nove child rute u client-routing-module.ts) idu funkcionalnosti za kandidate.
  */
 @Component({
   selector: 'app-client-home',

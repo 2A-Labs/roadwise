@@ -1,4 +1,4 @@
-namespace Market.Application.Modules.Finance.Currencies.Queries.Convert;
+namespace Roadwise.Application.Modules.Finance.Currencies.Queries.Convert;
 
 public sealed class ConvertCurrencyQueryDto
 {

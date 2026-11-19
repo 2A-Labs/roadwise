@@ -1,4 +1,4 @@
-# Market.Backend
+# Roadwise.Backend
 
 ASP.NET Core Web API (.NET 10). Pokretanje, korisnici i okruženja su opisani u [`../README.md`](../README.md).
 
@@ -6,12 +6,12 @@ ASP.NET Core Web API (.NET 10). Pokretanje, korisnici i okruženja su opisani u 
 
 | Projekat | Uloga |
 |---|---|
-| `Market.API` | kontroleri, middleware, autentifikacija i autorizacija (JWT, politika `Admin`), Swagger, CORS |
-| `Market.Application` | CQRS komande i upiti (MediatR), validatori (FluentValidation), apstrakcije (`IAppDbContext`, `IAppCurrentUser`…) |
-| `Market.Domain` | entiteti (`BaseEntity` sa soft delete i audit poljima) |
-| `Market.Infrastructure` | EF Core `DatabaseContext`, konfiguracije entiteta, migracije, seederi, JWT servis, globalni exception handler |
-| `Market.Shared` | DTO-i za greške (`ErrorDto`, `FieldErrorDto`), opcije, konstante |
-| `Market.Tests` | unit i integracijski testovi (xUnit) |
+| `Roadwise.API` | kontroleri, middleware, autentifikacija i autorizacija (JWT, politika `Admin`), Swagger, CORS |
+| `Roadwise.Application` | CQRS komande i upiti (MediatR), validatori (FluentValidation), apstrakcije (`IAppDbContext`, `IAppCurrentUser`…) |
+| `Roadwise.Domain` | entiteti (`BaseEntity` sa soft delete i audit poljima) |
+| `Roadwise.Infrastructure` | EF Core `DatabaseContext`, konfiguracije entiteta, migracije, seederi, JWT servis, globalni exception handler |
+| `Roadwise.Shared` | DTO-i za greške (`ErrorDto`, `FieldErrorDto`), opcije, konstante |
+| `Roadwise.Tests` | unit i integracijski testovi (xUnit) |
 
 ## Pravila koja starter primjenjuje
 

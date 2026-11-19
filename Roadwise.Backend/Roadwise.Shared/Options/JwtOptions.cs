@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Market.Shared.Options;
+namespace Roadwise.Shared.Options;
 
 /// <summary>Typed JWT settings from the "Jwt" section.</summary>
 public sealed class JwtOptions

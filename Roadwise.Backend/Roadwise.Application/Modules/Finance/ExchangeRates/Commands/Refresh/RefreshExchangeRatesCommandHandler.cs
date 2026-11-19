@@ -1,6 +1,6 @@
-using Market.Domain.Entities.Finance;
+using Roadwise.Domain.Entities.Finance;
 
-namespace Market.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
+namespace Roadwise.Application.Modules.Finance.ExchangeRates.Commands.Refresh;
 
 public sealed class RefreshExchangeRatesCommandHandler(IAppDbContext ctx, IExchangeRateProvider provider)
     : IRequestHandler<RefreshExchangeRatesCommand, RefreshExchangeRatesCommandDto>
@@ -8,7 +8,7 @@ public sealed class RefreshExchangeRatesCommandHandler(IAppDbContext ctx, IExcha
     public async Task<RefreshExchangeRatesCommandDto> Handle(RefreshExchangeRatesCommand request, CancellationToken ct)
     {
         if (!provider.IsEnabled)
-            throw new MarketConflictException(
+            throw new RoadwiseConflictException(
                 "Automatsko preuzimanje kursne liste nije uključeno. " +
                 "U appsettings.json postavite \"ExchangeRates\": { \"Provider\": \"Frankfurter\" } " +
                 "(ili varijablu okruženja ExchangeRates__Provider=Frankfurter) i ponovo pokrenite API. " +

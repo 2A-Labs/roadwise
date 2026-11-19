@@ -1,4 +1,4 @@
-﻿namespace Market.Application.Modules.Auth.Commands.Login;
+﻿namespace Roadwise.Application.Modules.Auth.Commands.Login;
 
 /// <summary>
 /// FluentValidation validator for <see cref="LoginCommand"/>.

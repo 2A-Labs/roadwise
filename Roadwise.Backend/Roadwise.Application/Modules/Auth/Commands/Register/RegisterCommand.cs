@@ -1,7 +1,7 @@
-namespace Market.Application.Modules.Auth.Commands.Register;
+namespace Roadwise.Application.Modules.Auth.Commands.Register;
 
 /// <summary>
-/// Registration of a new customer account. The new user is logged in immediately (the response contains tokens).
+/// Registration of a new user account (no roles). The new user is logged in immediately (the response contains tokens).
 /// </summary>
 public sealed class RegisterCommand : IRequest<RegisterCommandDto>
 {

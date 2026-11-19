@@ -1,6 +1,6 @@
 $primary-blue: #4a90e2;
 
-.store-header {
+.app-header {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -40,7 +40,7 @@ $primary-blue: #4a90e2;
   }
 }
 
-.store-nav {
+.app-nav {
   display: flex;
   align-items: center;
   gap: 4px;

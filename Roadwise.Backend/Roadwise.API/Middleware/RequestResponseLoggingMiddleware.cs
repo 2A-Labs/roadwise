@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Market.API.Middleware;
+namespace Roadwise.API.Middleware;
 
 /// <summary>
 /// Middleware that logs every HTTP request: method, path, status code and duration.

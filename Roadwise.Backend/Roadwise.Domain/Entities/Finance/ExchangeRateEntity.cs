@@ -1,6 +1,6 @@
-using Market.Domain.Common;
+using Roadwise.Domain.Common;
 
-namespace Market.Domain.Entities.Finance;
+namespace Roadwise.Domain.Entities.Finance;
 
 /// <summary>
 /// Exchange rate of one currency to the base currency (BAM), valid from <see cref="ValidFromUtc"/>

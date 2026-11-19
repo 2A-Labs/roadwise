@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Market.Shared.Options;
+namespace Roadwise.Shared.Options;
 
 /// <summary>
 /// "Email:Smtp" section: the SMTP server used to send emails (e.g. the "forgot password" link).
@@ -38,8 +38,8 @@ public sealed class EmailOptions
     public string? Password { get; init; }
 
     /// <summary>
-    /// Sender, e.g. "Market &lt;no-reply@market.local&gt;".
+    /// Sender, e.g. "Roadwise &lt;no-reply@roadwise.local&gt;".
     /// </summary>
     [Required]
-    public string From { get; init; } = "Market <no-reply@market.local>";
+    public string From { get; init; } = "Roadwise <no-reply@roadwise.local>";
 }

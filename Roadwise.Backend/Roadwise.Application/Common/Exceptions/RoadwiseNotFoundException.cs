@@ -1,6 +1,6 @@
-﻿namespace Market.Application.Common.Exceptions;
+﻿namespace Roadwise.Application.Common.Exceptions;
 
-public sealed class MarketNotFoundException : Exception
+public sealed class RoadwiseNotFoundException : Exception
 {
-    public MarketNotFoundException(string message) : base(message) { }
+    public RoadwiseNotFoundException(string message) : base(message) { }
 }

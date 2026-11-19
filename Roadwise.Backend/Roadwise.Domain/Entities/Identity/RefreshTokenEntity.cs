@@ -1,9 +1,9 @@
 ﻿// RefreshTokenEntity.cs
 
 // RefreshTokenEntity.cs
-using Market.Domain.Common;
+using Roadwise.Domain.Common;
 
-namespace Market.Domain.Entities.Identity;
+namespace Roadwise.Domain.Entities.Identity;
 
 public sealed class RefreshTokenEntity : BaseEntity
 {
@@ -11,7 +11,7 @@ public sealed class RefreshTokenEntity : BaseEntity
     public DateTime ExpiresAtUtc { get; set; }
     public bool IsRevoked { get; set; }
     public int UserId { get; set; }
-    public MarketUserEntity User { get; set; } = default!;
+    public RoadwiseUserEntity User { get; set; } = default!;
     public string? Fingerprint { get; set; } // (Optional) e.g., UA/IP hash
     public DateTime? RevokedAtUtc { get; set; }
 }

@@ -1,6 +1,6 @@
-﻿using Market.Domain.Entities.Finance;
+﻿using Roadwise.Domain.Entities.Finance;
 
-namespace Market.Infrastructure.Database.Seeders;
+namespace Roadwise.Infrastructure.Database.Seeders;
 
 /// <summary>
 /// Static (reference) data that every environment needs, including production.

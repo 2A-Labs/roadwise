@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace Market.Application.Common.Behaviors;
+namespace Roadwise.Application.Common.Behaviors;
 
 /// <summary>
 /// MediatR pipeline behavior that runs all FluentValidation validators for the request
@@ -13,8 +13,8 @@ namespace Market.Application.Common.Behaviors;
 /// <item>A validator checks only the request itself: required fields, lengths, formats, ranges and relations
 /// between fields. It never reads the database, so it has no <c>IAppDbContext</c>.</item>
 /// <item>Rules that depend on data in the database are checked in the handler: a missing record throws
-/// <c>MarketNotFoundException</c> (404), a duplicate or another conflict with existing data throws
-/// <c>MarketConflictException</c> or <c>MarketBusinessRuleException</c> (409).</item>
+/// <c>RoadwiseNotFoundException</c> (404), a duplicate or another conflict with existing data throws
+/// <c>RoadwiseConflictException</c> or <c>RoadwiseBusinessRuleException</c> (409).</item>
 /// <item>A unique index in the database stays as the last guard: two simultaneous requests can both pass the
 /// check in the handler, and the second insert then fails with <c>DbUpdateException</c> (409).</item>
 /// </list>

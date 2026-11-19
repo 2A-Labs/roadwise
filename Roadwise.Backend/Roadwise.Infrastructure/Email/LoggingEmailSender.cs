@@ -1,9 +1,9 @@
-using Market.Application.Abstractions;
+using Roadwise.Application.Abstractions;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Market.Infrastructure.Email;
+namespace Roadwise.Infrastructure.Email;
 
 /// <summary>
 /// Development "email sender": nothing is sent, the email is written to the backend log (console and Logs folder)
@@ -12,7 +12,7 @@ namespace Market.Infrastructure.Email;
 /// Used when "Email:Smtp:Host" is empty. Writing an email to the log is acceptable ONLY because this is a
 /// development sink: the log then contains the reset link, i.e. a secret that allows changing the password.
 /// That is why the application refuses to start with an empty SMTP host outside Development, Testing and
-/// IntegrationTests (see Market.Infrastructure DependencyInjection).
+/// IntegrationTests (see Roadwise.Infrastructure DependencyInjection).
 /// </para>
 /// </summary>
 public sealed class LoggingEmailSender(ILogger<LoggingEmailSender> logger) : IEmailSender
